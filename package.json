@@ -13,6 +13,7 @@
     "ios": "DARK_MODE=media expo start --ios",
     "web": "DARK_MODE=media expo start --web",
     "test": "jest --watchAll",
+    "test-coverage": "jest --coverage",
     "lint": "expo lint"
   },
   "jest": {
