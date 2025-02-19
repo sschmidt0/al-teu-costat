@@ -47,6 +47,14 @@ export default function RootLayout() {
               headerTintColor: CustomColors.white,
             }}
           />
+          <Stack.Screen
+            name="(auth)/[activity]"
+            options={{
+              headerBackTitle: "Tornar",
+              headerStyle: { backgroundColor: CustomColors.primary900 },
+              headerTintColor: CustomColors.white,
+            }}
+          />
           <Stack.Screen name="+not-found" />
         </Stack>
         <StatusBar style="auto" />
