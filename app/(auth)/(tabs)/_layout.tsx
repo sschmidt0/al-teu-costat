@@ -12,7 +12,6 @@ export default function TabLayout() {
         headerStyle: {
           backgroundColor: CustomColors.primary900,
         },
-        // headerRight: () => <NewActivityButton />,
         tabBarActiveTintColor: CustomColors.primary300,
         tabBarInactiveTintColor: CustomColors.white,
         tabBarStyle: { backgroundColor: CustomColors.primary900 },

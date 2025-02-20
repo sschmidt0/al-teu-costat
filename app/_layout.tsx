@@ -38,7 +38,7 @@ export default function RootLayout() {
     <GluestackUIProvider mode="light">
       <ThemeProvider value={colorScheme === "dark" ? DarkTheme : DefaultTheme}>
         <Stack>
-          <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+          <Stack.Screen name="(auth)/(tabs)" options={{ headerShown: false }} />
           <Stack.Screen
             name="(auth)/activity-list-view"
             options={{
