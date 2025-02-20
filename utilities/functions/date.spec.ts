@@ -1,5 +1,5 @@
-import { formatDateTimeActivityCard } from "./date";
-import { daysOfWeek, months } from "../constants/date";
+import { formatDateTimeActivityCard, transformStamp } from "./date";
+import { ModeOptions } from "../models";
 
 describe("date", () => {
   describe("formatDateTimeActivityCard", () => {
@@ -32,5 +32,25 @@ describe("date", () => {
       const formattedDate = formatDateTimeActivityCard(date);
       expect(formattedDate).toBe("dg., des 31 • 23:59");
     });
+  });
+});
+
+describe("transformStamp", () => {
+  it('should transform the date correctly when mode is "date"', () => {
+    const date = new Date("2025-02-19T14:30:00");
+    const transformedDate = transformStamp(date, "date" as ModeOptions);
+    expect(transformedDate).toBe("19/02/2025");
+  });
+
+  it('should transform the time correctly when mode is not "date"', () => {
+    const date = new Date("2025-02-19T14:30:00");
+    const transformedTime = transformStamp(date, "time" as ModeOptions);
+    expect(transformedTime).toBe("14:30");
+  });
+
+  it("should handle single digit hours and minutes correctly", () => {
+    const date = new Date("2025-02-19T04:05:00");
+    const transformedTime = transformStamp(date, "time" as ModeOptions);
+    expect(transformedTime).toBe("04:05");
   });
 });

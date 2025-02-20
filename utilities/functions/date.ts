@@ -1,4 +1,5 @@
 import { daysOfWeek, months } from "../constants/date";
+import { ModeOptions } from "../models";
 
 export const formatDateTimeActivityCard = (date: Date) => {
   const weekDay = daysOfWeek[date.getDay()];
@@ -12,4 +13,24 @@ export const formatDateTimeActivityCard = (date: Date) => {
   const hora = `${hores}:${minuts}`;
 
   return `${data} • ${hora}`;
+};
+
+export const transformStamp = (selectedValue: Date, mode: ModeOptions) => {
+  const isDate = mode === "date";
+
+  return isDate
+    ? selectedValue
+        .toLocaleDateString("es-ES", {
+          day: "2-digit",
+          month: "2-digit",
+          year: "numeric",
+        })
+        .toString()
+    : selectedValue
+        .toLocaleTimeString("es-ES", {
+          hour: "2-digit",
+          minute: "2-digit",
+          hour12: false,
+        })
+        .toString();
 };
